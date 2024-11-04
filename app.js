@@ -14,7 +14,8 @@ Aggiungi il metodo store per la creazione di un nuovo post
 
 const express = require('express')
 const app = express()
-const ricette = require('./database/db')
+
+const RicetteController = require('./Controllers/RicetteController.js')
 const PORT = 3000
 const HOST = 'http://localhost'
 
@@ -29,25 +30,9 @@ app.listen(PORT, () => {
 
 })
 
-app.get('/ricette', (req, res) => {
 
-    res.json({
-        data: ricette,
-        counter: ricette.lenght
-    })
-})
-app.get('/ricette/:slug', (req, res) =>{
 
-    console.log(req.params);
-    
-    
-    
-    const ricetta = ricette.find( (ricetta) => ricetta.slug === req.params.slug)
-    console.log(ricetta);
-    
-    if(!ricetta){
-        return res.status(404).json({error: "Nessuna ricetta trovata"})
-    }
-    return res.status(200).json({ data: ricetta })
-})
+app.get('/ricette', RicetteController.index)
+
+app.get('/ricette/:slug', RicetteController.show)
 
