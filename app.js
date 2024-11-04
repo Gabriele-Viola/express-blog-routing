@@ -36,13 +36,18 @@ app.get('/ricette', (req, res) => {
         counter: ricette.lenght
     })
 })
-app.get('/ricette/:id', (req, res) =>{
+app.get('/ricette/:slug', (req, res) =>{
+
+    console.log(req.params);
+    
+    
+    
     const ricetta = ricette.find( (ricetta) => ricetta.slug === req.params.slug)
     console.log(ricetta);
     
-    // if(!ricetta){
-    //     return res.status(404).json({error: "Nessuna ricetta trovata"})
-    // }
-    // return res.status(200).json({ data: ricetta })
+    if(!ricetta){
+        return res.status(404).json({error: "Nessuna ricetta trovata"})
+    }
+    return res.status(200).json({ data: ricetta })
 })
 
