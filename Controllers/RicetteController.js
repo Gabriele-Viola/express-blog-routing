@@ -1,11 +1,16 @@
 const ricette = require('../database/db.js')
 
 const index = (req, res) => {
-
-    res.json({
-        data: ricette,
-        counter: ricette.lenght
-    })
+    let list = ''
+    ricette.forEach(ricetta => {
+        list += `<li>${ricetta.title}</li>`
+    });
+    const unorderlist = `<ul>${list}</ul>`
+    res.send(unorderlist)
+    // res.json({
+    //     data: ricette,
+    //     counter: ricette.lenght
+    // })
 }
 
 const show = (req, res) =>{
@@ -28,5 +33,21 @@ module.exports = {
     show
 }
 
+
+
+// app.get('/yourPosts', (req, res) => {
+
+//     let list = ''
+//     posts.forEach(post => {
+//         list += `<li>${post.title}</li>`
+//     });
+
+//     const unorderList =
+//         `
+//     <ul>${list}</ul>
+//     `
+
+//     res.send(unorderList)
+// })
 
 
