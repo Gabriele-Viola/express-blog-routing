@@ -14,8 +14,8 @@ Aggiungi il metodo store per la creazione di un nuovo post
 
 const express = require('express')
 const app = express()
+const ricetteRouters = require('./routes/ricette.js')
 
-const RicetteController = require('./Controllers/RicetteController.js')
 const PORT = 3000
 const HOST = 'http://localhost'
 
@@ -23,16 +23,9 @@ app.listen(PORT, () => {
 
     console.log(`${HOST}:${PORT}`);
 
-
-
-
-
-
 })
+ app.use('/', ricetteRouters)
 
 
 
-app.get('/ricette', RicetteController.index)
-
-app.get('/ricette/:slug', RicetteController.show)
 
