@@ -12,4 +12,19 @@ Creare inoltre un filtro in querystring per tag, che ritorna in formato json tut
 Aggiungi il metodo store per la creazione di un nuovo post
 */
 
+const express = require('express')
+const app = express()
+const ricette = require('./Controllers/RicetteController')
+const posts = require('./database/db')
+const PORT = process.env.PORT
+const HOST = process.env.HOST
+
+app.listen(PORT, ()=>{
+    
+    console.log(`Server is running at ${HOST}:${PORT}`);
+    
+})
+
+// app.get('/', posts.index)
+
 
