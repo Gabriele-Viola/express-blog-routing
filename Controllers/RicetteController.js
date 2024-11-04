@@ -27,6 +27,14 @@ const show = (req, res) =>{
     }
     return res.status(200).json({ data: ricetta })
 }
+// const showFilterTags = (req, res) =>{
+//     console.log(req.params.tags);
+    
+//     // const filterTags = ricette.filter( (ricetta) => ricetta.tags === req.params.tags)
+//     // res.json({
+//     //     tags: 
+//     // })
+// }
 
 module.exports = {
     index,
