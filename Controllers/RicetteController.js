@@ -43,19 +43,6 @@ module.exports = {
 
 
 
-// app.get('/yourPosts', (req, res) => {
 
-//     let list = ''
-//     posts.forEach(post => {
-//         list += `<li>${post.title}</li>`
-//     });
-
-//     const unorderList =
-//         `
-//     <ul>${list}</ul>
-//     `
-
-//     res.send(unorderList)
-// })
 
 
